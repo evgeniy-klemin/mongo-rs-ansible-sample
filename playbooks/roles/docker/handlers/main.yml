@@ -1,0 +1,11 @@
+---
+
+
+- name: Start docker
+  service: name=docker state=started enabled=yes
+
+- name: Reboot
+  command: shutdown -r now "Reboot triggered by Ansible"
+  async: 1
+  poll: 0
+  ignore_errors: true
